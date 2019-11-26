@@ -25,14 +25,42 @@ const DATA = [
   },
 ];
 
-export default function Home() {
+
+export default function Home({ navigation }) {
+
+  handleNavigate = (id) => {
+    let level = "Challenge";
+    level = level+id;
+
+    navigation.navigate(level);
+    console.log(level);
+    
+    // switch (id) {
+    //   case 1:  
+    //     navigation.navigate('level1');
+    //     break;
+
+    //   case 2:  
+    //     navigation.navigate('Challenge');
+    //     break;
+
+    //   case 2:  
+    //     navigation.navigate('Challenge');
+    //     break;   
+
+    //   default:
+    //     break;
+    // }
+  };
+  
+
   return (
     <Container>
       <List
         data={DATA}
         renderItem={({item}) => (
-          <Button>
-            <Icon name="gamepad" size={20} />
+          <Button onPress={() => handleNavigate(item.id)}>
+            <Icon name="gamepad" size={30} color="#FFF"/>
             <Title>{item.title}</Title>
           </Button>
         )}
