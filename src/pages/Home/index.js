@@ -1,6 +1,6 @@
 import React from 'react';
-import Icon from 'react-native-vector-icons/FontAwesome5'
-import { Container, List, Title, Button  } from './styles';
+import Icon from 'react-native-vector-icons/FontAwesome5';
+import {Container, List, Title, Button} from './styles';
 
 const DATA = [
   {
@@ -26,15 +26,13 @@ const DATA = [
 ];
 
 export default function Home() {
-
   return (
     <Container>
       <List
         data={DATA}
-        renderItem={({ item }) => (
-        
+        renderItem={({item}) => (
           <Button>
-            <Icon name='gamepad' size={20} />
+            <Icon name="gamepad" size={20} />
             <Title>{item.title}</Title>
           </Button>
         )}
@@ -43,4 +41,3 @@ export default function Home() {
     </Container>
   );
 }
-
