@@ -11,8 +11,8 @@ import Challenge5 from './pages/Challenge5';
 
 const DashBoard = createStackNavigator(
   {
-    Home,
     Challenge1,
+    Home,
     Challenge2,
     Challenge3,
     Challenge4,
