@@ -1,7 +1,18 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {StatusBar} from 'react-native';
 
-import Routes from './routes';
+import createRouter from './routes';
+import {getUser} from './utils/userStore';
 
 export default function src() {
-  return <Routes />;
+  const user = getUser();
+
+  const Routes = createRouter(false);
+
+  return (
+    <>
+      <StatusBar backgroundColor="#ffa500" barStyle="dark-content" />
+      <Routes />
+    </>
+  );
 }
