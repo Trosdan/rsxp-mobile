@@ -1,10 +1,16 @@
 import styled from 'styled-components/native';
-import {SafeAreaView, FlatList, Text} from 'react-native';
+import {SafeAreaView, FlatList, Text, View} from 'react-native';
 import {RectButton} from 'react-native-gesture-handler';
 
 export const Container = styled(SafeAreaView)`
   flex: 1;
-  padding: 30px;
+  padding: 10px;
+`;
+
+export const Ranking = styled(View)`
+  flex: 0.2;
+  padding: 5px;
+  background-color: #222;
 `;
 
 export const List = styled(FlatList)`
@@ -18,10 +24,16 @@ export const Title = styled(Text)`
   margin-left: 15px;
 `;
 
+export const Title2 = styled(Text)`
+  font-size: 15;
+  color: #fff;
+  margin-left: 15px;
+`;
+
 export const Button = styled(RectButton)`
   justify-content: center;
   align-items: center;
-  background: #ffa500;
+  background: ${prop => (prop.enabled ? '#ffa500' : '#cdcdc1')};
   border-radius: 4px;
   margin-left: 10px;
   margin-top: 10px;
