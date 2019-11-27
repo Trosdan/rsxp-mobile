@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Alert} from 'react-native';
+import {Alert, ActivityIndicator} from 'react-native';
 
 import {Container, NameInput, LoginButton, TextButton} from './styles';
 
@@ -8,18 +8,22 @@ import {setUser} from '../../utils/userStore';
 
 function Login({navigation}) {
   const [name, setName] = useState('');
+  const [loading, setLoading] = useState(false);
 
   async function handlerLogin() {
     try {
-      if (user === '') {
-        throw 'Error';
+      setLoading(true);
+      if(name === '') {
+        throw new 'Error';
       }
-      const {data: user} = await api.post('/user', {name});
-      await setUser(user);
-      navigation.navigate('DashBoard');
+      // const {data: user} = await api.post('/user', {name});
+      setTimeout(async () => {
+        await setUser({name: 'Jorge'});
+        navigation.navigate('DashBoard');
+      }, 5000);
     } catch (error) {
-      console.log(error);
       Alert.alert('Erro na conexão', 'não foi possivel efetuar o login');
+      setLoading(false);
     }
   }
 
@@ -32,8 +36,15 @@ function Login({navigation}) {
         returnKeyType="send"
         onSubmitEditing={() => handlerLogin()}
       />
-      <LoginButton onPress={() => handlerLogin()}>
-        <TextButton>Entrar</TextButton>
+      <LoginButton onPress={() => handlerLogin()} enabled={!loading}>
+        {loading ? 
+          <ActivityIndicator 
+            size={"small"} 
+            color={'#fff'}
+          /> : 
+          <TextButton>Entrar</TextButton> 
+          }
+        
       </LoginButton>
     </Container>
   );
