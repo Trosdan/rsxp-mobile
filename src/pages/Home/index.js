@@ -1,7 +1,16 @@
 import React, {Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import IconAntD from 'react-native-vector-icons/AntDesign';
-import {Container, List, Title, Title2, Button, Ranking, LogoutButton, LogoutText} from './styles';
+import {
+  Container,
+  List,
+  Title,
+  Title2,
+  Button,
+  Ranking,
+  LogoutButton,
+  LogoutText,
+} from './styles';
 import api from '../../services/api';
 
 const DATA = [
@@ -68,7 +77,7 @@ export default class Home extends Component {
           renderItem={({item}) => (
             <Button
               onPress={() => this.handleNavigate(item.id)}
-              enabled={item.id > 1 ? false : true}>
+              enabled={item.id > 2 ? false : true}>
               <Icon name="gamepad" size={30} color="#FFF" />
               <Title>{item.title}</Title>
             </Button>
