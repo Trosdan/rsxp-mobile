@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Alert, ActivityIndicator} from 'react-native';
 
-import {Container, NameInput, LoginButton, TextButton} from './styles';
+import {Container, NameInput, LoginButton, TextButton, TextLogo} from './styles';
 
 import api from '../../services/api';
 import {setUser} from '../../utils/userStore';
@@ -29,6 +29,7 @@ function Login({navigation}) {
 
   return (
     <Container>
+      <TextLogo>Desbloqueie seu potencial.</TextLogo>
       <NameInput
         value={name}
         onChangeText={setName}

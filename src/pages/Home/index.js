@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import {Container, List, Title, Title2, Button, Ranking} from './styles';
+import IconAntD from 'react-native-vector-icons/AntDesign';
+import {Container, List, Title, Title2, Button, Ranking, LogoutButton, LogoutText} from './styles';
 import api from '../../services/api';
 
 const DATA = [
@@ -47,6 +48,7 @@ export default class Home extends Component {
   };
 
   render() {
+    const {navigation} = this.props;
     // const {ranking} = this.state;
     const ranking = [
       '1º Renato: 20 stars',
@@ -56,6 +58,7 @@ export default class Home extends Component {
     return (
       <Container>
         <Ranking>
+          <IconAntD name="Trophy" size={36} color="#000" />
           <Title2>{ranking[0]}</Title2>
           <Title2>{ranking[1]}</Title2>
           <Title2>{ranking[2]}</Title2>
@@ -72,6 +75,9 @@ export default class Home extends Component {
           )}
           keyExtractor={item => item.id}
         />
+        <LogoutButton onPress={() => navigation.navigate('Login')}>
+          <LogoutText>Sair</LogoutText>
+        </LogoutButton>
       </Container>
     );
   }

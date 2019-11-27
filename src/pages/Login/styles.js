@@ -9,6 +9,13 @@ export const Container = styled.View`
   justify-content: center;
 `;
 
+export const TextLogo = styled(Text)`
+  align-self: center;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 16px;
+`;
+
 export const NameInput = styled(TextInput)`
   background-color: #ffff;
   margin-bottom: 10px;
