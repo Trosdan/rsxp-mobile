@@ -9,27 +9,29 @@ import Challenge3 from './pages/Challenge3';
 import Challenge4 from './pages/Challenge4';
 import Challenge5 from './pages/Challenge5';
 
-const DashBoard = createStackNavigator(
-  {
-    Challenge1,
-    Home,
-    Challenge2,
-    Challenge3,
-    Challenge4,
-    Challenge5,
-  },
-  {
-    headerLayoutPreset: 'center',
-    headerBackTitleVisible: false,
-    defaultNavigationOptions: {
-      headerTitle: 'Desafios',
-
-      headerStyle: {
-        backgroundColor: '#ffa500',
+const DashBoard = createAppContainer(
+  createStackNavigator(
+    {
+      Home,
+      Challenge1,
+      Challenge2,
+      Challenge3,
+      Challenge4,
+      Challenge5,
+    },
+    {
+      headerLayoutPreset: 'center',
+      headerBackTitleVisible: false,
+      defaultNavigationOptions: {
+        headerTitle: 'Ranking',
+        headerStyle: {
+          backgroundColor: '#ffa500',
+        },
+        headerTintColor: '#FFF',
       },
       headerTintColor: '#FFF',
     },
-  },
+  ),
 );
 
 const Routes = (isLogged = false) =>

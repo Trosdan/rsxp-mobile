@@ -9,13 +9,16 @@ import {
   StatusBar,
 } from 'react-native';
 import {Button} from 'native-base';
-// import logoJs from '../../assets/images/js';
 
 export default class Challenge1 extends Component {
   render() {
     return (
       <ScrollView
-        style={{paddingRight: 10, paddingLeft: 10, backgroundColor: '#b3d9ff'}}>
+        style={{
+          paddingRight: 10,
+          paddingLeft: 10,
+          backgroundColor: '#ffff99',
+        }}>
         <View>
           <Text style={style.textoPrincipal}>
             1- Qual linguagem de programação a imagem abaixo representa?

@@ -13,9 +13,10 @@ import {Button} from 'native-base';
 
 export default class Challenge1 extends Component {
   render() {
+    const {navigation} = this.props;
     return (
       <ScrollView
-        style={{paddingRight: 10, paddingLeft: 10, backgroundColor: '#b3d9ff'}}>
+        style={{paddingRight: 10, paddingLeft: 10, backgroundColor: '#ffff99'}}>
         <View>
           <Text style={style.textoPrincipal}>
             1- Qual linguagem de programação a imagem abaixo representa?
@@ -29,6 +30,9 @@ export default class Challenge1 extends Component {
         </View>
         <View style={style.espacoButton}>
           <Button
+            onPress={() =>
+              Alert.alert('Sua resposta está...', 'Errada! Tente novamente :(')
+            }
             style={{
               backgroundColor: '#7070db',
               alignItems: 'center',
@@ -37,13 +41,35 @@ export default class Challenge1 extends Component {
             }}>
             <Text style={{color: '#fff', fontWeight: 'bold'}}>PHP</Text>
           </Button>
-          <Button block light>
+          <Button
+            onPress={() =>
+              Alert.alert('Sua resposta está...', 'Errada! Tente novamente :(')
+            }
+            block
+            light>
             <Text style={{color: '#000', fontWeight: 'bold'}}>TypeScript</Text>
           </Button>
-          <Button block warning>
+          <Button
+            onPress={() =>
+              Alert.alert('Sua resposta está...', 'Errada! Tente novamente :(')
+            }
+            block
+            warning>
             <Text style={{color: '#000', fontWeight: 'bold'}}>Swifit</Text>
           </Button>
           <Button
+            onPress={() =>
+              Alert.alert(
+                'Sua resposta está...',
+                'Correta! Parabéns,você desbloqueou o próximo level! :)',
+                [
+                  {
+                    text: 'Voltar para tela inicial',
+                    onPress: () => navigation.navigate('Home'),
+                  },
+                ],
+              )
+            }
             style={{backgroundColor: '#ffff00', justifyContent: 'center'}}>
             <Text style={{color: '#000', fontWeight: 'bold'}}>JavaScript</Text>
           </Button>
