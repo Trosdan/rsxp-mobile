@@ -11,10 +11,14 @@ function Login({navigation}) {
 
   async function handlerLogin() {
     try {
+      if (user === '') {
+        throw 'Error';
+      }
       const {data: user} = await api.post('/user', {name});
       await setUser(user);
       navigation.navigate('DashBoard');
     } catch (error) {
+      console.log(error);
       Alert.alert('Erro na conexão', 'não foi possivel efetuar o login');
     }
   }
