@@ -1,4 +1,4 @@
-import {createAppContainer, createSwitchNavigator } from 'react-navigation';
+import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 
 import Login from './pages/Login';
@@ -30,15 +30,19 @@ const DashBoard = createStackNavigator(
       headerTintColor: '#FFF',
     },
   },
-)
-
-const Routes = (isLogged = false) => createAppContainer(
-    createSwitchNavigator({
-      Login,
-      DashBoard,
-    }, {
-      initialRouteName: isLogged ? 'DashBoard' : 'Login',
-    })
 );
+
+const Routes = (isLogged = false) =>
+  createAppContainer(
+    createSwitchNavigator(
+      {
+        Login,
+        DashBoard,
+      },
+      {
+        initialRouteName: isLogged ? 'DashBoard' : 'Login',
+      },
+    ),
+  );
 
 export default Routes;
