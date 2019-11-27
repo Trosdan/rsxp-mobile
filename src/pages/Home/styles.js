@@ -15,15 +15,16 @@ export const List = styled(FlatList)`
 export const Title = styled(Text)`
   font-size: 32;
   color: #fff;
+  margin-left: 15px;
 `;
 
 export const Button = styled(RectButton)`
   justify-content: center;
   align-items: center;
-  background: #7159c1;
+  background: #ffa500;
   border-radius: 4px;
   margin-left: 10px;
   margin-top: 10px;
   padding: 0 12px;
-  flex-direction: column;
+  flex-direction: row;
 `;

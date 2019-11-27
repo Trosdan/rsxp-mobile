@@ -11,7 +11,7 @@ import {
 import {Button} from 'native-base';
 // import logoJs from '../../assets/images/js';
 
-export default class LevelUm extends Component {
+export default class Challenge1 extends Component {
   render() {
     return (
       <ScrollView
