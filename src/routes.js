@@ -22,8 +22,7 @@ const Routes = createAppContainer(
       headerLayoutPreset: 'center',
       headerBackTitleVisible: false,
       defaultNavigationOptions: {
-        headerTitle: 'Desafios',
-
+        headerTitle: 'Ranking',
         headerStyle: {
           backgroundColor: '#ffa500',
         },

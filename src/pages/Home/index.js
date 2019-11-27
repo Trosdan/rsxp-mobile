@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import {Container, List, Title, Button} from './styles';
+import {Container, List, Title, Title2, Button, Ranking} from './styles';
+import api from '../../services/api';
 
 const DATA = [
   {
@@ -25,47 +26,53 @@ const DATA = [
   },
 ];
 
+export default class Home extends Component {
+  // static navigationOptions = () => ({
+  //   title: 'Teste',
+  // });
 
-export default function Home({ navigation }) {
-
-  handleNavigate = (id) => {
-    let level = "Challenge";
-    level = level+id;
-
-    navigation.navigate(level);
-    console.log(level);
-    
-    // switch (id) {
-    //   case 1:  
-    //     navigation.navigate('level1');
-    //     break;
-
-    //   case 2:  
-    //     navigation.navigate('Challenge');
-    //     break;
-
-    //   case 2:  
-    //     navigation.navigate('Challenge');
-    //     break;   
-
-    //   default:
-    //     break;
-    // }
+  state = {
+    ranking: [],
   };
-  
 
-  return (
-    <Container>
-      <List
-        data={DATA}
-        renderItem={({item}) => (
-          <Button onPress={() => handleNavigate(item.id)}>
-            <Icon name="gamepad" size={30} color="#FFF"/>
-            <Title>{item.title}</Title>
-          </Button>
-        )}
-        keyExtractor={item => item.id}
-      />
-    </Container>
-  );
+  // async componentDidMount() {
+  //   const response = await api.get('/ranking');
+  //   console.log(response.data);
+  // }
+
+  handleNavigate = id => {
+    let level = 'Challenge';
+    level = level + id;
+    this.props.navigation.navigate(level);
+  };
+
+  render() {
+    // const {ranking} = this.state;
+    const ranking = [
+      '1º Renato: 20 stars',
+      '2º João: 16 stars',
+      '3º Diogo: 12 stars',
+    ];
+    return (
+      <Container>
+        <Ranking>
+          <Title2>{ranking[0]}</Title2>
+          <Title2>{ranking[1]}</Title2>
+          <Title2>{ranking[2]}</Title2>
+        </Ranking>
+        <List
+          data={DATA}
+          renderItem={({item}) => (
+            <Button
+              onPress={() => this.handleNavigate(item.id)}
+              enabled={item.id > 1 ? false : true}>
+              <Icon name="gamepad" size={30} color="#FFF" />
+              <Title>{item.title}</Title>
+            </Button>
+          )}
+          keyExtractor={item => item.id}
+        />
+      </Container>
+    );
+  }
 }
